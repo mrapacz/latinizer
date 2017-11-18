@@ -4,7 +4,8 @@
 
 ## Installation
 
-Available on [hex.pm](https://hex.pm/packages/latinizer/)
+Available in [Hex](https://hex.pm/packages/latinizer/)
+
 The package can be installed by adding `latinizer` to your list of dependencies in `mix.exs`:
 
 ```elixir
