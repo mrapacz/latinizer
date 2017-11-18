@@ -1,12 +1,12 @@
 # Latinizer
 
-**A string-translating module for replacing the regional characters with their
-  closest latin equivalents.**
+**A string-translating module responsible for getting rid of diacritic signs in strings**
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `latinizer` to your list of dependencies in `mix.exs`:
+Available in [Hex](https://hex.pm/packages/latinizer/).
+
+The package can be installed by adding `latinizer` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -14,6 +14,7 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/latinizer](https://hexdocs.pm/latinizer).
+To learn more, read [the docs](https://hexdocs.pm/latinizer).
+
+Should you find missing character mappings or any other problems, feel free to create
+issues in the repo for that, I'll be happy to help.
