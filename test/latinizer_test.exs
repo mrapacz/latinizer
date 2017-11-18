@@ -23,11 +23,11 @@ defmodule LatinizerTest do
 
   describe "latinize/2" do
     test "string with all characters specified should be mapped to latin" do
-      assert latinize("ŁÓDZIWO", ["Ł", "Ó"]) == "LODZIWO"
+      assert latinize("ŁÓDZIWO", only: ["Ł", "Ó"]) == "LODZIWO"
     end
 
     test "should map only specified characters" do
-      assert latinize("ŁÓÓÓDECZKA", ["Ó"]) == "ŁOOODECZKA"
+      assert latinize("ŁÓÓÓDECZKA", only: ["Ó"]) == "ŁOOODECZKA"
     end
   end
 end
