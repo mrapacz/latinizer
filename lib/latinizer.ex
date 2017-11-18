@@ -31,6 +31,7 @@ defmodule Latinizer do
 
   """
 
+  @spec latinize(binary, list) :: binary
   def latinize(string, chars \\ []) do
     character_map = CharacterMap.get_map(chars)
 

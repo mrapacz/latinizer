@@ -281,6 +281,7 @@ defmodule Latinizer.CharacterMap do
 
   """
 
+  @spec get_map(list) :: map()
   def get_map(chars \\ []) do
     case chars do
       [] -> @map
