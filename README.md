@@ -1,4 +1,5 @@
 # Latinizer
+[![CircleCI](https://img.shields.io/circleci/project/github/mrapacz/latinizer.svg)](https://circleci.com/gh/mrapacz/latinizer/tree/master)
 [![Hex.pm](https://img.shields.io/hexpm/v/latinizer.svg)](https://hex.pm/packages/latinizer/)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/mrapacz/latinizer/blob/enhancement/readme-badges/LICENSE)
 
