@@ -21,7 +21,7 @@ defmodule Latinizer.Mixfile do
   end
 
   defp deps do
-    []
+    [{:ex_doc, "~> 0.16", only: :dev, runtime: false}]
   end
 
   defp package do
