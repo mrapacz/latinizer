@@ -4,6 +4,7 @@
 
 ## Installation
 
+Available on [hex.pm](https://hex.pm/packages/latinizer/)
 The package can be installed by adding `latinizer` to your list of dependencies in `mix.exs`:
 
 ```elixir
@@ -12,7 +13,7 @@ def deps do
 end
 ```
 
-For more information read [the docs](https://hexdocs.pm/latinizer)
+To learn more, read [the docs](https://hexdocs.pm/latinizer).
 
 Should you find missing character mappings or any other problems, feel free to create
-an issue for that, I'll be happy to help.
+issues in the repo for that, I'll be happy to help.
