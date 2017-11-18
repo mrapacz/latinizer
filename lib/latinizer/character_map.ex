@@ -1,4 +1,7 @@
-defmodule Mapper do
+defmodule Latinizer.CharacterMap do
+  @moduledoc """
+  A module storing character mappings.
+  """
   @map %{
     "&lt;" => "",
     "&gt;" => "",
@@ -267,10 +270,21 @@ defmodule Mapper do
     "я" => "ya"
   }
 
-  def map_to_latin(char, []), do: Map.get(@map, char, char)
+  @doc """
+  Returns all of the character mapping as a single map. If `chars` is specified,
+  it will return only a map of the specified characters to their latin equivalents.
 
-  def map_to_latin(char, chars) do
-    map = Map.take(@map, chars)
-    Map.get(map, char, char)
+  ## Examples
+
+      iex> Latinizer.CharacterMap.get_map ["ł", "ó", "Ą"]
+      %{"ł" => "l", "ó" => "o", "Ą" => "A"}
+
+  """
+
+  def get_map(chars \\ []) do
+    case chars do
+      [] -> @map
+      specified_chars -> Map.take(@map, specified_chars)
+    end
   end
 end

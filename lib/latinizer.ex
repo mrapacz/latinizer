@@ -1,4 +1,6 @@
 defmodule Latinizer do
+  alias Latinizer.CharacterMap
+
   @moduledoc """
   A string-translating module for replacing the regional characters with their
   closest latin equivalents.
@@ -30,9 +32,13 @@ defmodule Latinizer do
   """
 
   def latinize(string, chars \\ []) do
+    character_map = CharacterMap.get_map(chars)
+
     string
     |> String.graphemes()
-    |> Enum.map(&Mapper.map_to_latin(&1, chars))
+    |> Enum.map(&map_to_latin(&1, character_map))
     |> List.to_string()
   end
+
+  defp map_to_latin(char, map), do: Map.get(map, char, char)
 end
