@@ -1,4 +1,6 @@
 # Latinizer
+[![Hex.pm](https://img.shields.io/hexpm/v/latinizer.svg)](https://hex.pm/packages/latinizer/)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/mrapacz/latinizer/blob/enhancement/readme-badges/LICENSE)
 
 **A string-translating module responsible for getting rid of diacritic signs in strings**
 
