@@ -8,8 +8,11 @@ defmodule Latinizer.Mixfile do
       elixir: "~> 1.4",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
+      package: package(),
       deps: deps(),
-      package: package()
+      name: "Latinizer",
+      description: description(),
+      source_url: "https://github.com/mrapacz/latinizer"
     ]
   end
 
@@ -23,10 +26,14 @@ defmodule Latinizer.Mixfile do
 
   defp package do
     [
-      files: ["lib", "mix.exs", "README", "LICENSE"],
+      files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["Maciej Rapacz"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/mrapacz/latinizer"}
     ]
+  end
+
+  defp description do
+    "A string-translating module responsible for getting rid of diacritic signs in strings."
   end
 end
