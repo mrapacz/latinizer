@@ -9,7 +9,7 @@ defmodule Latinizer do
   @doc """
   Replaces specified regional characters with their closest latin equivalent.
 
-  Returns a string with replaced letters. If the `chars` argument is specified,
+  Returns a string with replaced letters. If the `:only` argument is specified,
   only the letters provided in this argument will be replaced.
 
   ## Examples
@@ -18,22 +18,32 @@ defmodule Latinizer do
       iex> Latinizer.latinize "gżegżółka"
       "gzegzolka"
 
-  Translating with specified characters:
+      iex> Latinizer.latinize "хорошо"
+      "horosho"
 
-      iex> Latinizer.latinize "łódeczka", ["ł"]
+      iex> Latinizer.latinize ""
+      ""
+
+  You can pass the `:only` option to replace only the specified characters:
+
+      iex> Latinizer.latinize "łódeczka", only: ["ł"]
       "lódeczka"
 
-      iex> Latinizer.latinize "łódeczka", ["ł", "ó"]
+      iex> Latinizer.latinize "łódeczka", only: ["ł", "ó"]
       "lodeczka"
 
-      iex> Latinizer.latinize "łódeczka", ["ł", "ó", "Ą", "a"]
+      iex> Latinizer.latinize "łódeczka", only: ["ł", "ó", "Ą", "a"]
       "lodeczka"
 
   """
 
   @spec latinize(binary, list) :: binary
-  def latinize(string, chars \\ []) do
-    character_map = CharacterMap.get_map(chars)
+  def latinize(string, opts \\ []) do
+    character_map =
+      case Keyword.get(opts, :only) do
+        nil -> CharacterMap.get_map()
+        chars -> CharacterMap.get_map(chars)
+      end
 
     string
     |> String.graphemes()
