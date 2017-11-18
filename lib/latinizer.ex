@@ -9,7 +9,7 @@ defmodule Latinizer do
   @doc """
   Replaces specified regional characters with their closest latin equivalent.
 
-  Returns a string with replaced letters. If the `chars` argument is specified,
+  Returns a string with replaced letters. If the `:only` argument is specified,
   only the letters provided in this argument will be replaced.
 
   ## Examples

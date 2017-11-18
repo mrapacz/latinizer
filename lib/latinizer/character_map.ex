@@ -286,8 +286,7 @@ defmodule Latinizer.CharacterMap do
     }
 
   @doc """
-  If `chars` is specified,
-  it will return a submap of the original character map containing only
+  Returns a submap of the original character map containing only
   the specified characters' mapping to their latin equivalents.
 
   ## Examples
