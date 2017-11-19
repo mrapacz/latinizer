@@ -12,7 +12,7 @@ defmodule Latinizer.CharacterMap do
       %{"Á" => "A", "Ć" => "C", "č" => "c", "ĸ" => "k", "ш" => "sh"}
 
       iex> Latinizer.CharacterMap.get_map |> Map.size
-      265
+      266
 
   """
   @spec get_map() :: map()
@@ -195,6 +195,7 @@ defmodule Latinizer.CharacterMap do
       "ř" => "r",
       "ŗ" => "r",
       "š" => "s",
+      "ś" => "s",
       "ù" => "u",
       "ú" => "u",
       "û" => "u",
