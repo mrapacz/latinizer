@@ -13,7 +13,7 @@ The package can be installed by adding `latinizer` to your list of dependencies 
 
 ```elixir
 def deps do
-  [{:latinizer, "~> 0.2.0"}]
+  [{:latinizer, "~> 0.3.0"}]
 end
 ```
 
