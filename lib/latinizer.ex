@@ -1,13 +1,18 @@
 defmodule Latinizer do
-  alias Latinizer.CharacterMap
+  alias Latinizer.{
+    Transcriptions,
+    Diacritics
+  }
 
   @moduledoc """
-  A string-translating module for replacing the regional characters with their
+  A module allowing one to replace regional characters in strings with their
   closest latin equivalents.
+
+  The module takes care of both transcription and removal of diacritical signs.
   """
 
   @doc """
-  Replaces specified regional characters with their closest latin equivalent.
+  Replaces regional characters in the given string with their closest latin equivalents.
 
   Returns a string with replaced letters. If the `:only` argument is specified,
   only the letters provided in this argument will be replaced.
@@ -15,14 +20,20 @@ defmodule Latinizer do
   ## Examples
   Translating with no characters specified:
 
-      iex> Latinizer.latinize "gżegżółka"
-      "gzegzolka"
+      iex> Latinizer.latinize ""
+      ""
 
       iex> Latinizer.latinize "хорошо"
       "horosho"
 
-      iex> Latinizer.latinize ""
-      ""
+      iex> Latinizer.latinize "gżegżółka"
+      "gzegzolka"
+
+      iex> Latinizer.latinize "Pchnij w tę łódź jeża lub ośm skrzyń fig."
+      "Pchnij w te lodz jeza lub osm skrzyn fig"
+
+      iex> Latinizer.latinize "В начале было Слово, и Слово было у Бога, и Слово было Бог."
+      "V nachale bylo Slovo i Slovo bylo u Boga i Slovo bylo Bog"
 
   You can pass the `:only` option to replace only the specified characters:
 
@@ -39,17 +50,11 @@ defmodule Latinizer do
 
   @spec latinize(binary, list) :: binary
   def latinize(string, opts \\ []) do
-    character_map =
-      case Keyword.get(opts, :only) do
-        nil -> CharacterMap.get_map()
-        chars -> CharacterMap.get_map(chars)
-      end
-
     string
-    |> String.graphemes()
-    |> Enum.map(&map_to_latin(&1, character_map))
-    |> List.to_string()
+    |> Transcriptions.transcribe(opts)
+    |> Diacritics.remove_diacritics(opts)
   end
 
-  defp map_to_latin(char, map), do: Map.get(map, char, char)
+  defdelegate transcribe(string, opts \\ []), to: Latinizer.Transcriptions
+  defdelegate remove_diacritics(string, opts \\ []), to: Latinizer.Diacritics
 end

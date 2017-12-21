@@ -4,15 +4,20 @@ defmodule Latinizer.Mixfile do
   def project do
     [
       app: :latinizer,
-      version: "0.3.0",
+      version: "0.4.0",
       elixir: "~> 1.4",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       package: package(),
       deps: deps(),
+      # docs
       name: "Latinizer",
+      source_url: "https://github.com/mrapacz/latinizer",
       description: description(),
-      source_url: "https://github.com/mrapacz/latinizer"
+      docs: [
+        main: "Latinizer",
+        extras: ["README.md"]
+      ]
     ]
   end
 
