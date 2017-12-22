@@ -1,7 +1,14 @@
 defmodule LatinizerTest do
   use ExUnit.Case
   doctest Latinizer
-  import Latinizer, only: [latinize: 1, latinize: 2]
+
+  import Latinizer,
+    only: [
+      latinize: 1,
+      latinize: 2,
+      remove_diacritics: 1,
+      transcribe: 1
+    ]
 
   describe "latinize/1" do
     test "string in latin chars should not be changed" do
@@ -28,6 +35,16 @@ defmodule LatinizerTest do
 
     test "should map only specified characters" do
       assert latinize("ŁÓÓÓDECZKA", only: ["Ó"]) == "ŁOOODECZKA"
+    end
+  end
+
+  describe "defdelegates" do
+    test "remove_diacritics should be delegated to Diacritic" do
+      assert remove_diacritics("ąćę") == "ace"
+    end
+
+    test "transcribe should be delegated to Diacritic" do
+      assert transcribe("łata") == "lata"
     end
   end
 end

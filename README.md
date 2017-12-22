@@ -1,8 +1,7 @@
 # Latinizer
 [![CircleCI](https://img.shields.io/circleci/project/github/mrapacz/latinizer.svg)](https://circleci.com/gh/mrapacz/latinizer/tree/master)
 [![Hex.pm](https://img.shields.io/hexpm/v/latinizer.svg)](https://hex.pm/packages/latinizer/)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/mrapacz/latinizer/blob/enhancement/readme-badges/LICENSE)
-
+[![Coverage Status](https://coveralls.io/repos/github/mrapacz/latinizer/badge.svg?branch=master)](https://coveralls.io/github/mrapacz/latinizer?branch=master)[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/mrapacz/latinizer/blob/enhancement/readme-badges/LICENSE)
 **A string-translating module responsible for getting rid of diacritical signs in strings**
 
 ## Installation
